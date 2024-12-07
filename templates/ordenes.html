@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lista de Órdenes</title>
+</head>
+<body>
+    <h1>Lista de Órdenes</h1>
+    <a href="/">Volver a la Página Principal</a>
+    <br><br>
+    <table border="1">
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>Nombre de la Orden</th>
+                <th>Fecha de Entrega</th>
+                <th>Estado</th>
+                <th>Última Actualización</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for orden in ordenes %}
+            <tr>
+                <td>{{ orden.id }}</td>
+                <td>{{ orden.nombre_orden }}</td>
+                <td>{{ orden.fecha_entrega }}</td>
+                <td>
+                    {% if orden.estado == "Activado" %}
+                        ✅ <!-- Check verde -->
+                    {% elif orden.estado == "Rechazado" %}
+                        ❌ <!-- X roja -->
+                    {% elif orden.estado == "Pendiente Gestionada" %}
+                        ⚠️ <!-- Triángulo amarillo -->
+                    {% elif orden.estado == "Pendiente" %}
+                        🟡 <!-- Círculo amarillo -->
+                    {% endif %}
+                </td>
+                <td>{{ orden.fecha_actualizacion }}</td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+

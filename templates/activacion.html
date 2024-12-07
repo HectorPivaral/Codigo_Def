@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Activación</title>
+</head>
+<body>
+    <h1>Activación de Órdenes</h1>
+    <form method="POST">
+        <table border="1">
+            <thead>
+                <tr>
+                    <th>Seleccionar</th>
+                    <th>ID</th>
+                    <th>Nombre de la Orden</th>
+                    <th>Fecha de Entrega</th>
+                    <th>Estado</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for activacion, orden in activaciones %}
+                <tr>
+                    <td><input type="checkbox" name="ordenes" value="{{ orden.id }}"></td>
+                    <td>{{ orden.id }}</td>
+                    <td>{{ orden.nombre_orden }}</td>
+                    <td>{{ orden.fecha_entrega }}</td>
+                    <td>{{ orden.estado }}</td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+        <br>
+        <button type="submit" name="accion" value="activar">Activar</button>
+        <button type="submit" name="accion" value="rechazar">Rechazar</button>
+        <button type="submit" name="accion" value="gestionar">Gestionar</button>
+    </form>
+    <a href="/">Volver a la Página Principal</a>
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+

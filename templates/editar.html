@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Editar Orden</title>
+</head>
+<body>
+    <h1>Editar Orden</h1>
+    <a href="/">Volver a la Página Principal</a>
+    <form method="POST">
+        <label for="nombre_orden">Nombre de la Orden:</label>
+        <input type="text" id="nombre_orden" name="nombre_orden" value="{{ orden.nombre_orden }}" required><br><br>
+
+        <label for="fecha_entrega">Fecha de Entrega:</label>
+        <input type="date" id="fecha_entrega" name="fecha_entrega" value="{{ orden.fecha_entrega }}" required><br><br>
+
+        <label for="estado">Estado:</label>
+        <select id="estado" name="estado" required>
+            <option value="Pendiente" {% if orden.estado == "Pendiente" %}selected{% endif %}>Pendiente</option>
+            <option value="Activado" {% if orden.estado == "Activado" %}selected{% endif %}>Activado</option>
+            <option value="Rechazado" {% if orden.estado == "Rechazado" %}selected{% endif %}>Rechazado</option>
+            <option value="Pendiente Gestionada" {% if orden.estado == "Pendiente Gestionada" %}selected{% endif %}>Pendiente Gestionada</option>
+        </select><br><br>
+
+        <button type="submit">Guardar Cambios</button>
+    </form>
+</body>
+</html>
